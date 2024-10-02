@@ -19,7 +19,6 @@ void UInterplatingTo::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
 	
 }
 
@@ -38,6 +37,9 @@ void UInterplatingTo::TickComponent(float DeltaTime, ELevelTick TickType, FActor
 	}
 
 	parent->SetActorLocation(FMath::VInterpTo(parent->GetActorLocation(), TargetActor->GetActorLocation(), DeltaTime, MoveSpeed));
+
+	FRotator NewRotation = TargetActor->GetActorRotation() + 2 * DeltaTime;
+	TargetActor->SetActorRotation(NewRotation);
 	// ...
 }
 
